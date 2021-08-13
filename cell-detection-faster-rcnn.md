@@ -6,9 +6,9 @@ description: 'https://github.com/yzhu319/keras-frcnn'
 
 ## Objective
 
-In this project, we want to train a model to automatically detect and classify different cells. 
+In this project, we want to train a model to automatically detect and classify different cells. This is a real-world use case of computer vision algorithms. The images are taken from a biomedical-engineering \(BME\) research lab.
 
-The images captured under microscope contains a CD8, a T-cell receptor, and activated-CD8. These two cell types are shown in the following sample figure:
+The images captured under microscope contains a CD8 \(a T-cell receptor\) and activated-CD8 \(activated form of CD8, usually distorted in an irregular shape\). These two cell types are shown in the following sample figure, which has 6 CD8 and 2 activated-CD8:
 
 ![Image\_sample](.gitbook/assets/image__2021-06-28__12-42-56.png)
 
@@ -59,6 +59,14 @@ After about 50 epochs, the total error no longer decreases \(the total-loss VS e
 ![](.gitbook/assets/cd8-sample1%20%281%29.png)
 
 ![](.gitbook/assets/cd8-sample2.png)
+
+
+
+## Comments
+
+* Cells relatively small so we need to tune the box size of the anchor boxes, this is critical in successfully "detect" the cells.
+* Configuration with Tensorflow \(1.0 version\) and GPU takes some trial-and-error, especially with Windows machine. Configuration details are specified in "setting\_readme.txt".
+* Image preprocessing and augmentation will greatly help with model performance-- the computer algorithm likes high-quality images obtained from well-trained experimentalists who know how to capture excellent cells sample under microscope.
 
 
 
