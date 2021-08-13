@@ -1,3 +1,7 @@
+---
+description: 'https://github.com/yzhu319/keras-frcnn'
+---
+
 # Cell detection: faster-RCNN
 
 ## Objective
@@ -32,13 +36,9 @@ The sample annotation info is shown as the table below:
 
 With labeled training data, we aim to 1. detect the correct location of cells in a new image and 2. correctly classify two types of cells.
 
-
-
 ## Faster-RCNN for object detection
 
 Object detection is a common task in computer vision. The algorithm we used here is Faster-RCNN. Faster-RCNN algorithm is optimized based on RCNN and Fast-RCNN, it replaces the selective search method with region proposal network \(RPN\) that makes the algorithm much faster.
-
-
 
 ## Implementation
 
