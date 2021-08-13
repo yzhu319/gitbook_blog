@@ -48,23 +48,19 @@ The algorithm is realized with a Keras implementation of Faster R-CNN.
 
 The details can be found in the README of this repo.
 
-
-
-Results
+## Results
 
 With GPU \(GeForce GTX 1660 Ti\), we train a model using the training data sets \(~160 images\). With each epoch, we record the following 4 metrics:
 
 rpn\_cls, rpn\_regr, detector\_cls, detector\_regr
 
-After about 50 epochs, the total error no longer decreases \(the total-loss VS epochs curve plateaus\) and we saved the model parameters to a model file. Those parameters are then used to 
-
-
-
-
-
-
+After about 50 epochs, the total error no longer decreases \(the total-loss VS epochs curve plateaus\) and we saved the model parameters to a model file. Those parameters are then used to make inferences. The two sample predictions are as follows. We can see the model can correctly detect all the cells in the image, and correctly classify these two cell types!
 
 ![](.gitbook/assets/cd8-sample1%20%281%29.png)
 
 ![](.gitbook/assets/cd8-sample2.png)
+
+
+
+
 
