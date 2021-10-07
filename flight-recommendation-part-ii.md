@@ -4,6 +4,14 @@ description: 'Part 2: implementation'
 
 # Search-ranking: small dataset
 
+## Intro
+
+This is an example of model training&testing of search-ranking algorithm. The dataset is small and can be stored on a single machine, so we'll use Pandas to navigate data, and use LightGBM library.
+
+When the data is too large to be stored on a single machine, we need to use Spark computation engine to handle distributed data. For machine learning tasks, we will then use frameworks designed for Spark, like MMLSpark \(Microsoft Machine Learning for Apache Spark\). MMLSpark integrates Spark ML pipelines with LightGBM, enabling highly-scalable solutions to ML training jobs. More details on the next section.
+
+
+
 ## 1. Prepare data: Training set and testing set
 
 Raw input data sample in csv / libsvm
