@@ -2,7 +2,7 @@
 description: 'Part 2: implementation'
 ---
 
-# Flight recommendation: Part II
+# Search-ranking: small dataset
 
 ## 1. Prepare data: Training set and testing set
 

@@ -2,7 +2,7 @@
 description: 'Part 1: overview'
 ---
 
-# Flight recommendation: Part I
+# Flight recommendation
 
 ## Pick the right flight
 
