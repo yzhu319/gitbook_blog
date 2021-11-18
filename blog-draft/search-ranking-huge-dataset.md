@@ -139,9 +139,21 @@ Optimized parameter to maximize NDCG score:
 
 num\_leaves = 50, num\_boost\_round = 2000
 
-![Grid-search for best hyper-parameters](<.gitbook/assets/image (2).png>)
+
+
+#### Normalized Discounted Cumulative Gain (NDCG) vs Parameters
+
+NDCG-1, NDCG-5, and NDCG-20 scores are used to find the best parameters. By searching different combinations of parameters, we f&#x20;
+
+![Grid-search for best hyper-parameters: NDCG-1](<../.gitbook/assets/image (2) (1).png>)
 
 &#x20;
+
+![Grid-search for best hyper-parameters: NDCG-5](<../.gitbook/assets/image (3).png>)
+
+![Grid-search for best hyper-parameters: NDCG-20](<../.gitbook/assets/image (2).png>)
+
+###
 
 ### 6) Make predictions and save model
 

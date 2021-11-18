@@ -10,7 +10,7 @@ Millions of travelers around the world use online travel agent (OTA) like Pricel
 
 Factors like budget, connections, available times (day of the week, time of the day) usually play a big role in their decision making. It is a primary goal for a OTA like Priceline to provide _relevant and high quality flights options_ that best satisfy consumers' need. If consumers can't find what they need in a search, they may come back and search at another date, or they just walk away and try a new OTA.
 
-![](.gitbook/assets/1.png)
+![](../.gitbook/assets/1.png)
 
 ## Conversion rate: look-to-book
 
@@ -22,7 +22,7 @@ For an OTA, it is crucial that people see relevant flight options. For a global 
 
 When a search/ query is made to the flight itinerary search system, hundreds of candidate itineraries options return. Each itinerary has different values for features like travel time, number of stops, cabin class, and probably most important for most travelers, the fare.
 
-![A snapshot of OTA webpage: itinerary search system returns hundreds of items in response to a query](.gitbook/assets/2.png)
+![A snapshot of OTA webpage: itinerary search system returns hundreds of items in response to a query](../.gitbook/assets/2.png)
 
 However, the goal of an OTA is not to sell tickets at the lowest price. If we assume people always prefer the most affordable tickets, it makes sense to put the cheapest tickets at the top. But in reality, travelers take more factors into consideration.
 
@@ -43,7 +43,7 @@ What if we have a database with booking& shopping data records from millions of 
 
 A specific query for a shop (with a unique query ID) returns a list of candidate itineraries. One item of the list is booked (relevance score label of 1 or 0 to represent booked or not). We refer this pair of information as one query-documents data point. An example query-documents dataset (truncated and simplified) is shown as below. It is a table that contains a candidates-solution list and the corresponding labels.
 
-![One training data example](.gitbook/assets/3.png)
+![One training data example](../.gitbook/assets/3.png)
 
 In this query-documents dataset, the candidate solution list has 15 itineraries (documents) presented, and a customer eventually picked #13 from this list.
 
@@ -72,7 +72,7 @@ In Learning to Rank, however, the mapping function f we want to learn does not m
   * assume we know nothing about the 'specific' customer
   * we collected lots of historical query-documents type look-to-book data. From these data we learn a ML model that resembles the reasoning of an 'average' customer
 
-![general learn to rank approach](.gitbook/assets/4.png)
+![general learn to rank approach](../.gitbook/assets/4.png)
 
 ## Model implementation
 
@@ -82,15 +82,15 @@ To implement the tree-based learning algorithms to complete LTR task, we use the
 
 To further illustrate the core idea behind the algorithm. We can look at an over-simplified example. A person may first ask "how expensive are the flights? are they twice as expensive as the lowest price?", if yes, one section of the results in the list will be considered as 'affordable', the other will be considered as 'expensive'. They will be on the left and right branch of the trees. The lower layer of the decision tree can further divide the left tree -- 'affordable' solutions. The next question may be "how long is the flight take? Do they take twice as long as the shortest flight?". These 2 splits then create 4 categories: affordable & short trip, affordable & long trip, expensive & short trip and expensive & long trip. If we stopped here as the leaf node, we will obtain 4 probability for the 4 types of itineraries.
 
-![A simplest decision tree ](.gitbook/assets/5.png)
+![A simplest decision tree ](../.gitbook/assets/5.png)
 
 For the illustration tiny decision-tree example, we only have 2 splits and use 2 features: normalized price and normalized journey time. For the real implementation, the tree structure can be very complex. For the tree split node, there are multiple features to choose from such as fare, journey time, number of stops, day of the week, departure time of the day, cabin class, etc. For each node, the split threshold is determined by the model training process. Furthermore, the **boosting tree **model will have a sequence of decision trees. The first tree structure of the model using the sample data is shown below. More technical details can be found in [**Part 2**](https://github.com/yzhu319/gitbook\_blog/blob/main/Learn2Rank-flights.md).
 
-![A decision tree in trained with sample data](.gitbook/assets/6.png)
+![A decision tree in trained with sample data](../.gitbook/assets/6.png)
 
 When trained with different data, the model captures different **thinking patterns** for different groups of travelers. For example, for a cluster of consumers who prioritize affordability over convenience, they may first search for cheap flights, then time-saving flights. For a different group of travelers who are much less price-sensitive, they will probably have quite different decision-making processes.
 
-![Illustration of two groups of travelers with different preferences and decision-making precesses](.gitbook/assets/7.png)
+![Illustration of two groups of travelers with different preferences and decision-making precesses](../.gitbook/assets/7.png)
 
 ## Recommended flights: model predictions
 
@@ -100,7 +100,7 @@ In the example, while the original list is sorted by price (fare), the model thi
 
 We can see that the #13 solution is \~4% more expensive than the lowest price, but it is a non-stop itinerary with the shortest journey time. It has a better quality than solution #4-#12. Thus a 'smart' ranking system with recommendation features should put this solution at the top of the list.
 
-![Example of prediction of booking likelihood](.gitbook/assets/8.png)
+![Example of prediction of booking likelihood](../.gitbook/assets/8.png)
 
 ## Summary
 
